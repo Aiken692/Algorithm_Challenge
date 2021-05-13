@@ -1,42 +1,43 @@
 package com.walterzcode;
 
+import java.util.Scanner;
+
 public class Main {
 
 
-    public static void findDistinct (int[] a){
+    public void test(){
+        int no = 100000;
+        Scanner input = new Scanner(System.in);
+        System.out.println("How many elements do you want to enter?");
+        no = input.nextInt();
+        int[] N = new int[no];
 
-        int sum = 0;
+        for(int C = 0; C < no; C++){
+            System.out.println("Enter the numbers" + (C + 1));
+            N[C] = input.nextInt();
+        }
 
-        for(int i = 0; i < a.length; i++){
+        input.close();
+
+        for(int C = 0; C < no; C++){
             boolean isDistinct = false;
 
-            for(int j = 0; j < i; j++){
-                if(a[i] == a[j]){
+            for (int j = 0; j < C; j++){
+                if (N[C] == N[j]){
                     isDistinct = true;
                     break;
                 }
             }
-            if(!isDistinct){
-                System.out.println(a[i] + " ");
 
-//                Sum of the values
-                sum  = sum + a[i];
+            if (!isDistinct){
+                System.out.println(N[C] + " ");
             }
-
-//            This calculates the total of the distinct values
-//            System.out.println(sum);
-
         }
-
-        System.out.println("==============");
-        System.out.println("Total is");
-        System.out.println(sum);
     }
 
-    public static void main(String[] args) {
-	        int arr[] = {10, 11, 10, 11, 15};
-	        findDistinct(arr);
-
+    public static void main(String[] args){
+        Main dup = new Main();
+        dup.test();
     }
 
 
